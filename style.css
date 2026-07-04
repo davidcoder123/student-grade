@@ -272,7 +272,14 @@ button:hover {
 }
 
 #m-logo {
-  width: 20%;
+  width: 200px;
+  height: 200px;
+}
+
+#m-logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 #t-modal {
