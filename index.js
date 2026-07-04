@@ -5,6 +5,7 @@ const displayName = document.getElementById("m-name");
 const displayScore = document.getElementById("m-score");
 const displayGrade = document.getElementById("m-grade");
 const displayImage = document.getElementById("img");
+const displayStatues = document.getElementById("m-status");
 
 const modalOpen = document.getElementById("modal-open");
 const modal = document.getElementById("modal").classList;
@@ -26,8 +27,11 @@ modalOpen.addEventListener("click", (e) => {
 
   //score
   const scoreNum = Number(score.value);
+  displayGrade.innerHTML = grade(scoreNum);
 
-  displayGrade.textContent = grade(scoreNum);
+  //statues
+  let statusCheck = grade(scoreNum);
+  displayStatues.innerHTML = status(statusCheck);
 });
 
 modalClose.addEventListener("click", (e) => {
@@ -61,5 +65,13 @@ function grade(score) {
 
     default:
       return "GRADE F";
+  }
+}
+
+function status(status) {
+  if (status == "GRADE A" || status === "GRADE B" || status === "GRADE C") {
+    return `PASSED`;
+  } else {
+    return `FAILED`;
   }
 }
