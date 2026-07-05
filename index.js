@@ -1,6 +1,7 @@
 const name = document.getElementById("name");
 const score = document.getElementById("score");
 const image = document.getElementById("image");
+
 const displayName = document.getElementById("m-name");
 const displayScore = document.getElementById("m-score");
 const displayGrade = document.getElementById("m-grade");
@@ -12,18 +13,30 @@ const modal = document.getElementById("modal").classList;
 const modalClose = document.getElementById("m-close");
 const modalIn = document.getElementById("modal-in").classList;
 
+console.log(displayImage);
+
 //modal
 
 modalOpen.addEventListener("click", (e) => {
   e.preventDefault();
   //modal
-  modal.add("show");
-  modalIn.add("shows");
 
   //input
-  displayName.innerHTML = name.value;
-  displayScore.innerHTML = score.value;
-  displayImage.setAttribute("src", image.value);
+
+  if (name.value == `` || score.value == `` || image.value == ``) {
+    modal.remove("show");
+    modalIn.remove("shows");
+    alert("input complete details");
+    displayName.innerHTML = `input name`;
+    displayScore.innerHTML = `input score`;
+    displayImage.setAttribute("alt", `input image`);
+  } else {
+    modal.add("show");
+    modalIn.add("shows");
+    displayName.innerHTML = name.value;
+    displayScore.innerHTML = score.value;
+    displayImage.setAttribute("src", image.value);
+  }
 
   //score
   const scoreNum = Number(score.value);
