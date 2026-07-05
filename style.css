@@ -72,6 +72,7 @@ aside {
   display: flex;
   justify-content: space-between;
   padding: 60px;
+  padding-right: 100px;
 }
 
 #left section {
@@ -209,11 +210,19 @@ button:hover {
     height: 80px;
   }
 
+  .circle {
+    display: none;
+  }
+
   #big-circle {
     display: none;
   }
   #small-circle {
     display: none;
+  }
+
+  form {
+    width: 100%;
   }
 }
 
@@ -252,6 +261,12 @@ button:hover {
 
   p label {
     font-size: 1.1em;
+  }
+}
+
+@media screen and (min-height: 1000px) {
+  body {
+    height: 100dvh;
   }
 }
 
